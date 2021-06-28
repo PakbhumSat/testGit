@@ -1,13 +1,15 @@
 /* eslint-disable react/no-unescaped-entities */
 import styled from '@emotion/styled'
-import { Box, Paper, Typography, Container } from '@material-ui/core'
+import { Box, Paper, Typography, Container, Grid } from '@material-ui/core'
 //import { Breadcrumb } from 'core/CoreBreadcrumbs'
 import { Breadcrumb, CoreBreadcrumbs } from 'core/CoreBreadcrumbs'
-
-//import { MainLayout } from '../MainLayout'
+// import { MainLayout } from '../MainLayout'
 import { Footer } from '../Footer'
+// import { Borders } from '@material-ui/system'
 import React, { ReactNode } from 'react'
 import Image from 'next/image'
+
+
 const breadcrumbs: Breadcrumb[] = [
   { label: 'หน้าแรก', url: '/' },
   { label: 'Test FAQ' },
@@ -25,6 +27,15 @@ const HeadSection = styled((props) => (
 ))`
   margin-top: 10px;
 `
+
+const greetingMessage = {
+  display :'flex' ,
+  justifyContent:'center', 
+  fontSize:'2rem', 
+  fontWeight:'bold',
+  color:'#FFFFFF',
+  margin:'20px',
+};
 
 const IndentText: React.FC<{ indent?: string; marginTop?: string }> = ({
   children,
@@ -91,24 +102,31 @@ const MainLayout = ({
 export const TestFAQ = () => {
   return (
     <MainLayout
-    banner={
-        <Box bgcolor="#ffffff">
-          <Box>
-            <Image
-              src="/static/images/groupbuy_head.jpg"
-              alt="group buy banner"
-              width={2880}
-              height={480}
-              layout="intrinsic"
-              objectFit="contain"
-            />
-          </Box>
-          <Container>
-            
-          </Container>
-        </Box>
-      }
+    bgcolor= '#002984'
+    // {
+    //     <Box bgcolor="#002984">
+    //       <Box>
+    //         <Image
+    //           src="/static/images/groupbuy_head.jpg"
+    //           alt="group buy banner"
+    //           width={2880}
+    //           height={480}
+    //           layout="intrinsic"
+    //           objectFit="contain"
+    //         />
+    //       </Box>
+    //     </Box>
+    //   }
       >
+        {/* <div style={bgFAQ.bgPicture}></div> */}
+<Grid wrap='nowrap' display='flex'>
+  <Box borderRight={1} borderRight='2px solid #ffffff' width='max-content' paddingRight='20px' marginTop='20px'> 
+    <img src='/static/images/seller/white-logo.png' alt='FAQ logo top' width={166} height={42} />
+  </Box> 
+  <span style={greetingMessage} >ศูนย์ช่วยเหลือ</span>
+</Grid>
+
+<span style={greetingMessage}> สวัสดี, ค้นหาคำตอบของคุณได้ที่นี่</span> 
       <Paper elevation={3}>
           <Box p = {2}>
           <Typography variant="h4" component="div" color="textPrimary">
